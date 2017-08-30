@@ -86,7 +86,7 @@ allow-hotplug wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Note that the address for enxb827eb04aeaf is what you've chosen for RPi, and the netmask is either `255.255.0.0` or `255.255.255.0`. Save and exit nano.
+Note that the address for `enxb827eb04aeaf` is what you've chosen for RPi, and the netmask is either `255.255.0.0` or `255.255.255.0`. Save and exit nano.
 
 Restart by running `sudo shutdown -r now`. If everything goes well, on RPi, run `sudo apt-get update`, `sudo apt-get upgrade -y`, restart if necessary. 
 
@@ -123,7 +123,13 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 ```
 
 
-## 5. Modify RPi.
+## 5. How to login to your RPi from now on.
+From now on you don't need a screen or keyboard for your RPi. You need to connect your laptop to your RPi via Ethernet, and then power on RPi, run `ifconfig eth0 up` on Ubuntu if necessary. Your subnet IP (IP after masking) of the `eth?` or `en?` on your laptop should not be changing (unless you use another computer). Your RPi will always use the IP you've chosen for it. Therefore, on your laptop, run `ssh pi@169.254.109.123` or `ssh pi@192.168.0.123` to login your RPi. 
+
+Then you need to find your RPi's wireless IP. On RPi run `ifconfig` and see the IP for `wlan0`, e.g. 10.194.102.108. Then you can disconnect your laptop and RPi now. Exit the terminal and unplug the Ethernet cable, login into your RPi using wireless IP: `ssh pi@10.194.102.108`.
+
+
+## 6. Modify RPi.
 Suppose you're group 1, the name of your group should be `robotpi1`, change accordingly.
 
 Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`
