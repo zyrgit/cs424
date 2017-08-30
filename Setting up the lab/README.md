@@ -225,10 +225,10 @@ sudo make install
 sudo ldconfig
 ```
 
-![Figure 8.0](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/connection.png)
+![Figure 8.0](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/connection.png | width=100)
 
 Testing the System.
-​At this point, the entire assembly should be mobile as in Figure 8.0. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
+​At this point, the entire assembly should be mobile as in the above figure. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
 ```
 cd ~
 wget ​https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
@@ -243,9 +243,9 @@ The program will at first initialize camera, robot, etc. Once ready it will send
 scp pi@10.194.102.108:~/irobot-example/irobot_image.jpg ./
 ```
 
-![Figure 8.1](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/wallsensor.png)
+![Figure 8.1](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/wallsensor.png | width=100)
 
-Note the location of the wall sensor in Figure 8.1. The sensor works by transmitting a signal and measuring the strength of the received signal. This type of positioning allows it to detect a wall that is on the side. ​You can artificially check the wall sensor by a bringing a dark colored paper near it or taking it away.
+Note the location of the wall sensor in the above figure. The sensor works by transmitting a signal and measuring the strength of the received signal. This type of positioning allows it to detect a wall that is on the side. ​You can artificially check the wall sensor by a bringing a dark colored paper near it or taking it away.
 
 If the "Advance" button is pressed, the robot will start rotating in place. Subsequent presses of the advance button results in reversing the direction of rotation. It will also change the colors of LED. Study the code to make sure you understand it. The program will continue running in the aforementioned manner until the play button is pressed. Once the play button is pressed, the robot will stop and the ​robotest program will exit gracefully. You can also use the power button to turn off the iRobot at any time, but the program robotest does not detect such event and as a result it will continue running. But iRobot will not respond as the power has been turned off.
 
