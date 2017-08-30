@@ -124,7 +124,7 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 
 ## 5. How to login to your RPi from now on.
-From now on you don't need a screen or keyboard for your RPi. You need to connect your laptop to your RPi via Ethernet, and then power on RPi, run `ifconfig eth0 up` on Ubuntu if necessary. Your subnet IP (IP after masking) of the `eth?` or `en?` on your laptop should not be changing (unless you use another computer). Your RPi will always use the IP you've chosen for it. Therefore, on your laptop, run `ssh pi@169.254.109.123` or `ssh pi@192.168.0.123` to login your RPi. 
+From now on you don't need a screen or keyboard for your RPi. You need to connect your laptop to your RPi via Ethernet, and then power on RPi, run `ifconfig eth0 up` on Ubuntu if necessary. Your subnet IP (IP after masking) of the `eth?` or `en?` on your laptop should not be changing (unless you use another computer). Your RPi will always use the IP you've chosen for it. Therefore, on your laptop, run `ssh pi@169.254.109.123` or `ssh pi@192.168.0.123` to login your RPi (you may need to wait for 1 minute for your laptop to bring up Ethernet interface). 
 
 Then you need to find your RPi's wireless IP. On RPi run `ifconfig` and see the IP for `wlan0`, e.g. 10.194.102.108. Then you can disconnect your laptop and RPi now. Exit the terminal and unplug the Ethernet cable, login into your RPi using wireless IP: `ssh pi@10.194.102.108`.
 
@@ -134,7 +134,7 @@ Suppose you're group 1, the name of your RPi should be `robotpi1`, change accord
 
 Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`
 
-On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`.
+On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`. To power off you RPi, run `sudo shutdown -h now`.
 
 
 ## 7. Additional configurations.
@@ -143,5 +143,5 @@ On RPi, run `sudo dpkg-reconfigure tzdata` ​to set the timezone (US/Central).
 Run ​`sudo apt-get install ntp` to install network time protocol for synchronization.
 
 Install VNC:
-For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote­access/vnc/​ to install vnc.
+For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote-access/ to install VNC if you need it.
 
