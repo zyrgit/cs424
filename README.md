@@ -33,13 +33,13 @@ Once RPi powers up, select raspbian OS to install. You can choose to connect to 
 
 Suppose you are interacting with RPi via a screen, mouse, and a keyboard. Open a terminal on RPi. 
 
-On RPi, run `ifconfig` to see RPi's IP (e.g. `10.194.113.96`). Run `sudo service ssh restart` and `ssh-keygen -t rsa` on RPi. If there is connection refused error, run `sudo apt-get purge openssh-server` and `sudo apt-get install -y openssh-server`.
+On RPi, run `ifconfig` to see RPi's IP (e.g. `10.194.113.96`). Run `ssh-keygen -t rsa` and `sudo service ssh restart` on RPi. If there is connection refused error, run `sudo apt-get purge openssh-server` and `sudo apt-get install -y openssh-server`.
 
 On laptop, SSH into RPi using `ssh pi@10.194.113.96` with password `raspberry`. 
 
-On RPi, run `echo -n 'Your_UIUC_password' | iconv -t UTF-16LE | openssl md4` and copy the string after `(stdin)= `, this is to replace the password field in wpa_supplicant.conf. Run `history -cw` to clear cmd history.
+On RPi, run `echo -n 'Your_UIUC_password' | iconv -t UTF-16LE | openssl md4` and copy the string after `(stdin)= `, this is to replace the password field in `wpa_supplicant.conf`. Run `history -cw` to clear cmd history.
 
-On RPi, run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`, change to the following:
+On RPi, run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`, change to the following (if you do not use home wifi, omit the network config of "Your_home_wifi"):
 ```
 country=GB
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -62,7 +62,7 @@ Use `Ctrl-o`, `Enter`, `Ctrl-x` to save and exit nano.
 
 You also need to use Ethernet on RPi to communicate with your laptop. Because once you get rid of the screen for RPi, you have no way of knowing its IP. You need to SSH into RPi from your laptop via Ethernet (or USB-Ethernet adaptor) to know RPi's IP on wireless interface. So connect your laptop with RPi via Ethernet cable now.
 
-If you use Ubuntu, run `ifconfig eth0 up` to bring up Ethernet interface `eth?`, if you use Mac, plug in cable and `en?` should be up automatically. Find the IP of your laptop Ethernet interface using `ifconfig`. On Ubuntu it may be `192.168.0.1`, on Mac it may be `169.254.109.86`, something like that. 
+If you use Ubuntu, run `ifconfig eth0 up` on laptop to bring up Ethernet interface `eth?`, if you use Mac, plug in cable and `en?` should be up automatically. Find the IP of your laptop Ethernet interface using `ifconfig`. On Ubuntu it may be `192.168.0.1`, on Mac it may be `169.254.109.86`, something like that. 
 
 Your RPi and laptop needs to be on the same subnet. if you run `ifconfig` on your laptop, you see the netmask on your laptop, may be `netmask 0xffff0000 broadcast 169.254.255.255` on Mac or `netmask 0xffffff00 broadcast 192.168.0.255` on Ubuntu. If broadcast is `?.?.255.255` it means the lowest two bytes are masked, if broadcast is `?.?.?.255` it means the lowest one byte is masked. 
 
