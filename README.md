@@ -134,7 +134,7 @@ Suppose you're group 1, the name of your RPi should be `robotpi1`, change accord
 
 Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`
 
-On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`. To power off you RPi, run `sudo shutdown -h now`.
+On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`. To power off RPi, run `sudo shutdown -h now`.
 
 
 ## 7. Additional configurations.
@@ -144,4 +144,99 @@ Run ​`sudo apt-get install ntp` to install network time protocol for synchroni
 
 Install VNC:
 For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote-access/ to install VNC if you need it.
+
+Install Serial Communications Libraries and Dependencies:
+```
+sudo apt-get install libboost-all-dev
+sudo apt-get install python-sip
+sudo apt-get install python-sip-dev
+sudo apt-get install python-pip
+sudo pip install pyserial
+
+wget http://downloads.sourceforge.net/project/libserial/libserial/0.6.0rc2/libserial-0.6.0rc2.tar.gz
+tar -zxvf libserial-0.6.0rc2.tar.gz
+cd libserial-0.6.0rc2/
+./configure
+make
+sudo make install
+sudo ldconfig
+```
+
+
+## 8. Camera and OpenCV.
+Install libraries:
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install -y build-essential cmake pkg-config
+sudo apt-get install -y libjpeg-dev libtiff5-dev
+sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install -y libv4l-dev libxvidcore-dev libx264-dev
+sudo apt-get install -y libgtk2.0-dev
+sudo apt-get install -y libatlas-base-dev gfortran
+sudo apt-get install screen
+sudo apt-get install python2.7-dev python3-dev
+sudo apt-get install python-pip
+sudo pip install numpy
+
+```
+Install OpenCV. Using `screen` makes sure that even if you close the terminal, the compiling is still running.
+```
+screen
+
+cd ~
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+unzip opencv.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+unzip opencv_contrib.zip
+cd ~/opencv-3.1.0/
+mkdir build
+cd build
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+  -D CMAKE_INSTALL_PREFIX=/usr/local \
+  -D INSTALL_PYTHON_EXAMPLES=ON \
+  -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules \
+  -D BUILD_EXAMPLES=ON ..
+
+make -j4
+```
+This will take 1.5 hours. 
+Run:
+```
+sudo make install
+sudo ldconfig
+```
+
+Install RaspiCam.
+```
+git clone https://github.com/cedricve/raspicam
+cd raspicam
+mkdir build
+cd build
+cmake ..
+```
+Make sure `CREATE_OPENCV_MODULE=1` is displayed. 
+```
+make
+sudo make install
+sudo ldconfig
+```
+
+Testing the System.
+​At this point, the entire assembly should be mobile. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
+```
+cd ~
+wget ​https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
+tar -zxvf irobot-example.tar.gz
+cd irobot-example
+make
+```
+If the compilation succeeds, run the program ​`./robotest`.
+
+
+
+
+
+
 
