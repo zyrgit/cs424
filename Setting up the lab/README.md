@@ -225,7 +225,7 @@ sudo make install
 sudo ldconfig
 ```
 
-![Figure 8.0](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/connection.png | width=100)
+![connection.png](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/connection.png | width=100)
 
 Testing the System.
 ​At this point, the entire assembly should be mobile as in the above figure. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
@@ -243,7 +243,7 @@ The program will at first initialize camera, robot, etc. Once ready it will send
 scp pi@10.194.102.108:~/irobot-example/irobot_image.jpg ./
 ```
 
-![Figure 8.1](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/wallsensor.png | width=100)
+![wallsensor.png](https://github.com/zyrgit/cs424/blob/master/Setting%20up%20the%20lab/figure/wallsensor.png | width=100)
 
 Note the location of the wall sensor in the above figure. The sensor works by transmitting a signal and measuring the strength of the received signal. This type of positioning allows it to detect a wall that is on the side. ​You can artificially check the wall sensor by a bringing a dark colored paper near it or taking it away.
 
