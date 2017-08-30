@@ -130,22 +130,18 @@ Then you need to find your RPi's wireless IP. On RPi run `ifconfig` and see the 
 
 
 ## 6. Modify RPi.
-Suppose you're group 1, the name of your group should be `robotpi1`, change accordingly.
+Suppose you're group 1, the name of your RPi should be `robotpi1`, change accordingly.
 
 Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`
 
-On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart. 
+On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`.
 
-On RPi, run 
-```
-sudo touch /etc/network/if-up.d/robotpi
-sudo chmod 755 /etc/network/if-up.d/robotpi
-sudo nano /etc/network/if-up.d/robotpi
-```
-Add the following in `/etc/network/if-up.d/robotpi`:
-```
-#! /bin/sh
-curl --data "hostname=`/bin/hostname`&data=`/sbin/ifconfig`" http://apollo3.cs.illinois.edu/robotpi/controller.py/send_heartbeat
-```
 
+## 7. Additional configurations.
+
+On RPi, run `sudo dpkg­-reconfigure tzdata` ​to set the timezone (US/Central).
+Run ​`sudo apt­-get install ntp` to install network time protocol for synchronization.
+
+Install VNC:
+For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote­access/vnc/​ to install vnc.
 
