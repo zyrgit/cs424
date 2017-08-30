@@ -3,11 +3,11 @@ You can follow this to setup Raspberry Pi (RPi). Note: `On laptop` means using t
 
 # Setup RPi:
 
-1. Download SD Formatter 4.0 for either Windows or Mac https://www.sdcard.org/downloads/formatter_4/index.html
+## 1. Download SD Formatter 4.0 for either Windows or Mac https://www.sdcard.org/downloads/formatter_4/index.html
 Install it on your laptop and format the SD card using default option. 
 
 
-2. On laptop (Mac), insert SD card (assume appearing as BOOT) and run:
+## 2. On laptop (Mac), insert SD card (assume appearing as BOOT) and run:
 ```
 cd /Volumes/BOOT
 wget https://downloads.raspberrypi.org/NOOBS_latest
