@@ -228,7 +228,12 @@ sudo ldconfig
 
 ![connection.png](figure/connection.png?raw=true)
 
-Testing the System.
+Testing the System. On RPi, run
+```
+sudo raspi-config
+```
+Select `Interfacing Options`, `P1 Camera`, and enable it. Reboot.
+
 ​At this point, the entire assembly should be mobile as in the above figure. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
 ```
 cd ~
