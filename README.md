@@ -139,8 +139,8 @@ On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robo
 
 ## 7. Additional configurations.
 
-On RPi, run `sudo dpkg­-reconfigure tzdata` ​to set the timezone (US/Central).
-Run ​`sudo apt­-get install ntp` to install network time protocol for synchronization.
+On RPi, run `sudo dpkg-reconfigure tzdata` ​to set the timezone (US/Central).
+Run ​`sudo apt-get install ntp` to install network time protocol for synchronization.
 
 Install VNC:
 For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote­access/vnc/​ to install vnc.
