@@ -1,6 +1,7 @@
 # CS424 Real Time System Lab
-You can follow this to setup Raspberry Pi (RPi). Note: `On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi. 
-You can also read https://courses.engr.illinois.edu/cs424/fa2016/mp/init.pdf. But don't copy paste commands since there are invalid encodings. 
+You can follow this to setup Raspberry Pi (RPi). Note: `On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi.
+
+You can also read https://courses.engr.illinois.edu/cs424/fa2016/mp/init.pdf. But don't copy paste commands from that pdf since there are invalid encodings. 
 
 # Setup RPi:
 
@@ -231,7 +232,7 @@ Testing the System.
 ​At this point, the entire assembly should be mobile as in the above figure. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
 ```
 cd ~
-wget ​https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
+wget https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
 tar -zxvf irobot-example.tar.gz
 cd irobot-example
 make
