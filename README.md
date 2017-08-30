@@ -164,6 +164,7 @@ sudo ldconfig
 
 
 ## 8. Camera and OpenCV.
+
 Install libraries:
 ```
 sudo apt-get update
@@ -197,6 +198,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
   -D CMAKE_INSTALL_PREFIX=/usr/local \
   -D INSTALL_PYTHON_EXAMPLES=ON \
   -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules \
+  -D ENABLE_PRECOMPILED_HEADERS=OFF \
   -D BUILD_EXAMPLES=ON ..
 
 make -j4
@@ -234,9 +236,14 @@ make
 ```
 If the compilation succeeds, run the program ​`./robotest`.
 
+The program will at first initialize camera, robot, etc. Once ready it will send a command to the robot to continuously stream (1) Bump and Wheel Drop sensor, (2) Wall Signal, (3) Buttons. After that, it will command the robot to drive straight at 200 mm/s. Then the robot will continuously look for bumps (with 100ms sleep in between). If the robot has bumped, it will back up straight, rotate, and continue running. At every time, ​robotest will also print at the console what it is doing. If the robot has seen a "wall", it will take a photo using the raspberry pi camera and save it to a file named irobot_image.jpg ​. If you are using a Mac or a Linux machine, you can copy the photo to your computer using the following command. If you are using windows, you can use WinSCP or similar programs to transfer the photos (suppose your RPi's wlan0 IP is `10.194.102.108`):
+```
+scp pi@10.194.102.108:~/irobot-example/irobot_image.jpg ./
+```
 
+Note the location of the wall sensor in Figure 8.1. The sensor works by transmitting a signal and measuring the strength of the received signal. This type of positioning allows it to detect a wall that is on the side. ​You can artificially check the wall sensor by a bringing a dark colored paper near it or taking it away.
 
-
+If the "Advance" button is pressed, the robot will start rotating in place. Subsequent presses of the advance button results in reversing the direction of rotation. It will also change the colors of LED. Study the code to make sure you understand it. The program will continue running in the aforementioned manner until the play button is pressed. Once the play button is pressed, the robot will stop and the ​robotest program will exit gracefully. You can also use the power button to turn off the iRobot at any time, but the program robotest does not detect such event and as a result it will continue running. But iRobot will not respond as the power has been turned off.
 
 
 
