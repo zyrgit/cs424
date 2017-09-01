@@ -6,6 +6,8 @@ Yiran Zhao,
 # **Setting up Raspberry Pi, Camera, and iRobot Create**
 Follow the following instructions to set up your system.
 
+Available at: https://github.com/zyrgit/cs424/tree/master/Setting%20up%20the%20lab
+
 ## Note: 
 `On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi.
 
