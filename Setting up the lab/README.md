@@ -1,7 +1,13 @@
-# CS424 Real Time System Lab
-You can follow this to setup Raspberry Pi (RPi). Note: `On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi.
+# **CS424 Real-Time Systems**
+## Fall 2017
+# **Setting up Raspberry Pi, Camera, and iRobot Create**
+Yiran Zhao
+zhao97@illinois.edu
 
-You can also read https://courses.engr.illinois.edu/cs424/fa2016/mp/init.pdf. But don't copy paste commands from that pdf since there are invalid encodings. 
+# Note: 
+`On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi.
+
+You can also read the reference to last year's PDF: https://courses.engr.illinois.edu/cs424/fa2016/mp/init.pdf. But don't copy paste commands from that PDF since there are invalid encodings. 
 
 # Setup RPi:
 
