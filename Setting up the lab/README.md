@@ -1,8 +1,11 @@
 # **CS424 Real-Time Systems**
-## Fall 2017
-# **Setting up Raspberry Pi, Camera, and iRobot Create**
-Yiran Zhao
+Fall 2017
+
+Yiran Zhao,
 zhao97@illinois.edu
+
+# **Setting up Raspberry Pi, Camera, and iRobot Create**
+Follow the following instructions to set up your system.
 
 # Note: 
 `On laptop` means using the terminal logged in to your own laptop; `On RPi` means using the terminal logged in to your Raspberry Pi.
