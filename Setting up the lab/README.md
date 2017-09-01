@@ -130,7 +130,7 @@ From now on you don't need a screen or keyboard for your RPi. You need to connec
 Then you need to find your RPi's wireless IP. On RPi run `ifconfig` and see the IP for `wlan0`, e.g. 10.194.102.108. Then you can disconnect your laptop and RPi now. Exit the terminal and unplug the Ethernet cable, login into your RPi using wireless IP: `ssh pi@10.194.102.108`.
 
 
-## 6. Modify RPi.
+## 6. Modify RPi hostname.
 Suppose you're group 1, the name of your RPi should be `robotpi1`, change accordingly.
 
 Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`

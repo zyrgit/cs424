@@ -1,6 +1,6 @@
 # CS424 Real Time System Lab
 
-You can follow our last year's resources https://courses.engr.illinois.edu/cs424/fa2016/resources.html
+You can read our last year's resources https://courses.engr.illinois.edu/cs424/fa2016/resources.html
 
 ## Introduction to the lab
 An overview of the lab MPs.
