@@ -137,6 +137,8 @@ From now on you don't need a screen or keyboard for your RPi. You need to connec
 
 Then you need to find your RPi's wireless IP. On RPi run `ifconfig` and see the IP for `wlan0`, e.g. 10.194.102.108. Then you can disconnect your laptop and RPi now. Exit the terminal and unplug the Ethernet cable, login into your RPi using wireless IP: `ssh pi@10.194.102.108`.
 
+On laptop, run `ssh-copy-id pi@10.194.102.108` so that you don't need to type password to login.
+
 
 ## 6. Modify RPi hostname.
 Suppose you're group 1, the name of your RPi should be `robotpi1`, change accordingly.
@@ -151,7 +153,7 @@ On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robo
 On RPi, run `sudo dpkg-reconfigure tzdata` ​to set the timezone (US/Central).
 Run ​`sudo apt-get install ntp` to install network time protocol for synchronization.
 
-Install VNC:
+Install VNC (optional):
 For remote access, so far we have connected to and controlled the Pi through ​ssh​. Sometimes we need to access the Raspberry Pi desktop GUI. You can install VNC for this purpose. Follow https://www.raspberrypi.org/documentation/remote-access/ to install VNC if you need it.
 
 Install Serial Communications Libraries and Dependencies:
@@ -212,7 +214,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 make -j4
 ```
-This will take 1.5 hours. 
+This will take 1.5 hour. 
 Run:
 ```
 sudo make install
@@ -227,7 +229,7 @@ mkdir build
 cd build
 cmake ..
 ```
-Make sure `CREATE_OPENCV_MODULE=1` is displayed. 
+Make sure `CREATE_OPENCV_MODULE=1` is displayed somewhere in the command line output.
 ```
 make
 sudo make install
@@ -235,13 +237,15 @@ sudo ldconfig
 ```
 
 
-Testing the System. On RPi, run
+Enable the camera module, on RPi, run
 ```
 sudo raspi-config
 ```
 Select `Interfacing Options`, `P1 Camera`, and enable it. Reboot.
 
-​At this point, the entire assembly should be mobile. Power Raspberry Pi from the provided external battery. Make sure iRobot’s charger is not connected to it, and the system is free to move. SSH to RPi and execute:
+​At this point, the entire assembly should be *mobile*. Power Raspberry Pi from the provided external *battery*. Make sure iRobot’s charger is not connected to it, and the system is *free* to move. 
+
+To test the entire system, SSH into RPi and execute:
 ```
 cd ~
 wget https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
