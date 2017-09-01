@@ -145,9 +145,9 @@ On laptop, run `ssh-copy-id pi@10.194.102.108` so that you don't need to type pa
 ## 6. Modify RPi hostname.
 Suppose you're group 1, the name of your RPi should be `robotpi1`, change accordingly.
 
-Change hostname by running `sudo nano /etc/hosts` on RPi and change `1​27.0.1.1 raspberrypi` to `1​27.0.1.1 robotpi1`
+Change hostname by running `sudo nano /etc/hosts` on RPi and change `127.0.1.1 raspberrypi` to `127.0.1.1 robotpi1`
 
-On RPi, run `sudo nano /etc/hostname` and change `​raspberrypi​` to ​`robotpi​1`. Restart using `sudo reboot now` or `sudo shutdown -r now`. To power off RPi, run `sudo shutdown -h now`.
+On RPi, run `sudo nano /etc/hostname` and change `raspberrypi` to ​`robotpi1`. Restart using `sudo reboot now` or `sudo shutdown -r now`. To power off RPi, run `sudo shutdown -h now`.
 
 
 ## 7. Additional configurations.
