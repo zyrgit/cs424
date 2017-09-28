@@ -4,7 +4,7 @@ Yiran Zhao,
 `zhao97@illinois.edu`
 
 # **Setting up Raspberry Pi, Camera, and iRobot Create**
-Follow the following instructions to set up your system.
+Follow the following instructions to set up your system. The whole process may take 3 hours.
 
 Available at: https://github.com/zyrgit/cs424/tree/master/Setting%20up%20the%20lab
 
@@ -79,7 +79,7 @@ Your RPi and laptop needs to be on the same subnet. if you run `ifconfig` on you
 
 If on your laptop, it's `netmask 0xffff0000 broadcast 169.254.255.255` then the netmask on your RPi should be `netmask 255.255.0.0`. If it's `netmask 0xffffff00 broadcast 192.168.0.255` then the netmask on your RPi should be `netmask 255.255.255.0`.
 
-On RPi, run `ifconfig -a` and see the interface name for Ethernet, it may not be `eth0`, it can be something like `enxb827eb04aeaf`. Choose a different IP for your RPi's `eth?`, like `192.168.0.123` or `169.254.109.123`, only the last byte is different so they are on the same local network. 
+On RPi, run `ifconfig -a` and see the interface name for Ethernet, it may not be `eth0`, it can be something like `enxb827eb04aeaf`. Choose a different IP for your RPi's `eth?/en?`, like `192.168.0.123` or `169.254.109.123`, only the last byte is different so they are on the same local network. 
 
 On RPi, run `sudo nano /etc/network/interfaces` and change to the following:
 ```
@@ -250,7 +250,7 @@ Select `Interfacing Options`, `P1 Camera`, and enable it. Reboot.
 To test the entire system, SSH into RPi and execute:
 ```
 cd ~
-wget https://courses.engr.illinois.edu/cs424/fa2016/mp/irobot-example.tar.gz
+wget https://courses.engr.illinois.edu/cs424/fa2017/mp/irobot-example.tar.gz
 tar -zxvf irobot-example.tar.gz
 cd irobot-example
 make
